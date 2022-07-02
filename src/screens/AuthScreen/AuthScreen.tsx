@@ -136,7 +136,10 @@ const AuthScreen: IAuthScreenProps = ({route, navigation}) => {
 
   const onButtonPress = useCallback(() => {
     if (isSignup) {
-      createUser();
+      if (!userInfo.email || !userInfo.fullname || !userInfo.password) {
+        return;
+      }
+      return createUser();
     }
   }, [createUser, isSignup]);
 
