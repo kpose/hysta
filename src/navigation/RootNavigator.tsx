@@ -10,7 +10,7 @@ import {useUserContext} from '../providers/UserProvider';
 import HomeBottomTab from './HomeBottomTab';
 
 const linking = {
-  prefixes: ['wings://'],
+  prefixes: ['hysta://'],
 };
 
 function RootNavigator() {

@@ -15,7 +15,7 @@ const Welcome: ILandingScreenProps = ({navigation}) => {
     <>
       <View style={styles.container}>
         <View style={[styles.header, {marginTop: headerHeight + 30}]}>
-          <ScreenTitle style={styles.brand}>Wings</ScreenTitle>
+          <ScreenTitle style={styles.brand}>Hysta</ScreenTitle>
         </View>
         <View style={styles.infoContainer}>
           <Text weight="bold">Would you like to...</Text>

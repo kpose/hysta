@@ -187,7 +187,7 @@ const AuthScreen: IAuthScreenProps = ({route, navigation}) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.logoContainer}>
         <Text stylish style={styles.logo}>
-          Wings
+          Hysta
         </Text>
       </View>
 
@@ -239,7 +239,7 @@ const AuthScreen: IAuthScreenProps = ({route, navigation}) => {
         ) : (
           <Pressable onPress={openSignup}>
             <Text style={styles.fotterText}>
-              New to Wings?
+              New to Hysta?
               <Text
                 weight="bold"
                 style={[styles.fotterText, {color: colors.secondary}]}>
