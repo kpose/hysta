@@ -141,7 +141,13 @@ const AuthScreen: IAuthScreenProps = ({route, navigation}) => {
       }
       return createUser();
     }
-  }, [createUser, isSignup]);
+  }, [
+    createUser,
+    isSignup,
+    userInfo.email,
+    userInfo.fullname,
+    userInfo.password,
+  ]);
 
   const onChangeText = useCallback(
     (field: IInputDataFieeld, value: string) => {
