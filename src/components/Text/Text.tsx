@@ -61,7 +61,7 @@ export const ScreenTitle: React.FC<Omit<TextProps, 'weight' | 'stylish'>> =
 
 const styles = StyleSheet.create({
   stylish: {
-    // fontFamily: 'SecularOne-Regular',
+    fontFamily: 'SecularOne-Regular',
   },
   screenTitle: {
     marginBottom: 8,
@@ -71,16 +71,16 @@ const styles = StyleSheet.create({
   },
   base: {
     fontSize: 16,
-    // fontFamily: 'Roboto-Regular',
+    fontFamily: 'Roboto-Regular',
   },
   light: {
-    // fontFamily: 'Roboto-Light',
+    fontFamily: 'Roboto-Light',
   },
   medium: {
-    // fontFamily: 'Roboto-Medium',
+    fontFamily: 'Roboto-Medium',
   },
   bold: {
-    // fontFamily: 'Roboto-Bold',
+    fontFamily: 'Roboto-Bold',
   },
 });
 
