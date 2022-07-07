@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Pressable onPress={logOut}>
-        <Text>Home</Text>
+        <Text>logout</Text>
       </Pressable>
     </View>
   );
