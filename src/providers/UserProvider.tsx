@@ -5,12 +5,16 @@ import React, {
   useContext,
   useEffect,
   useState,
+  ReactNode,
 } from 'react';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 interface IUserContext {
   user: FirebaseAuthTypes.User | null;
   setUser?: (user: FirebaseAuthTypes.User) => {};
+}
+interface BaseLayoutProps {
+  children: ReactNode;
 }
 
 const defaultState = {
@@ -19,7 +23,7 @@ const defaultState = {
 
 const UserContext = createContext<IUserContext>(defaultState);
 
-export const UserProvider: FC = ({children}) => {
+export const UserProvider: FC<BaseLayoutProps> = ({children}) => {
   const [user, setUser] = useState<FirebaseAuthTypes.User>();
   const [initializing, setInitializing] = useState(true);
 

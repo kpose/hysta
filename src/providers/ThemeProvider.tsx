@@ -4,11 +4,15 @@ import React, {
   FC,
   useCallback,
   useContext,
+  ReactNode,
 } from 'react';
 
 interface IThemeContext {
   dark: boolean;
   toggleTheme?: () => void;
+}
+interface BaseLayoutProps {
+  children: ReactNode;
 }
 
 const defaultState = {
@@ -17,7 +21,7 @@ const defaultState = {
 
 const ThemeContext = createContext<IThemeContext>(defaultState);
 
-export const ThemeProvider: FC = ({children}) => {
+export const ThemeProvider: FC<BaseLayoutProps> = ({children}) => {
   const [dark, setDark] = useState(defaultState.dark);
 
   const toggleTheme = useCallback(() => {

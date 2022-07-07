@@ -65,7 +65,6 @@ const AuthScreen: IAuthScreenProps = ({route, navigation}) => {
         if (error.code === 'auth/invalid-email') {
           Alert.alert('That email address is invalid!');
         }
-        console.log(error);
         setLoading(false);
       });
   }, [loading, userInfo.email, userInfo.fullname, userInfo.password]);
@@ -134,16 +133,26 @@ const AuthScreen: IAuthScreenProps = ({route, navigation}) => {
     [userInfo],
   );
 
+  const loginUser = useCallback(() => {
+    console.log('lolo');
+  }, []);
+
   const onButtonPress = useCallback(() => {
     if (isSignup) {
       if (!userInfo.email || !userInfo.fullname || !userInfo.password) {
         return;
       }
       return createUser();
+    } else {
+      if (!userInfo.email || !userInfo.password) {
+        return;
+      }
+      return loginUser();
     }
   }, [
     createUser,
     isSignup,
+    loginUser,
     userInfo.email,
     userInfo.fullname,
     userInfo.password,
