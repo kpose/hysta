@@ -68,8 +68,9 @@ export default Button;
 const styles = StyleSheet.create({
   button: {
     width: PAGE_WIDTH / 1.3,
-    // backgroundColor: colors.primary,
+    backgroundColor: colors.primary,
     height: 50,
+    alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
@@ -93,5 +94,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     marginLeft: 10,
+    color: colors.light,
   },
 });

@@ -47,7 +47,7 @@ const Onboarding: IOnboardingScreenProps = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Pressable
-        style={[styles.skipContainer, {top: headerHeight / 1.5}]}
+        style={[styles.skipContainer, {top: headerHeight}]}
         onPress={onSkipPress}>
         <Text weight="bold" style={styles.skip}>
           Skip

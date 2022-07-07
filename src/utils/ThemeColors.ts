@@ -11,7 +11,7 @@ export const CustomDarkTheme = {
     ...PaperDarkTheme.colors,
     ...DarkTheme.colors,
     primary: '#2a9d8f',
-    background: '#37474f',
+    background: '#121111',
     text: '#ffffff',
     danger: '#BF0000',
   },

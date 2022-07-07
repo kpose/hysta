@@ -25,7 +25,6 @@ function OnboardingStack() {
 
   return (
     <Stack.Navigator
-      initialRouteName={isOnboarded ? 'Landing' : 'Onboarding'}
       screenOptions={{
         headerTitle: '',
         headerBackTitleVisible: false,
@@ -34,15 +33,16 @@ function OnboardingStack() {
         headerTitleAlign: Platform.select({ios: 'center'}),
         headerTransparent: true,
       }}>
-      <Stack.Screen
-        name="Onboarding"
-        component={Onboarding}
-        options={{headerTitle: ''}}
-      />
-
+      {isOnboarded ? null : (
+        <Stack.Screen
+          name="Onboarding"
+          component={Onboarding}
+          options={{headerTitle: ''}}
+        />
+      )}
       <Stack.Screen
         name="Landing"
-        component={Landing}
+        component={AuthScreen}
         options={{headerTitle: '', gestureEnabled: false}}
       />
 
@@ -51,16 +51,6 @@ function OnboardingStack() {
         component={AuthScreen}
         options={{headerTitle: ''}}
       />
-      {/* <Stack.Screen
-        name="OnboardingQuestions"
-        component={OnboardingQuestions}
-        options={{headerTitle: ''}}
-      />
-      <Stack.Screen
-        name="AppStack"
-        component={AppStack}
-        options={{headerTitle: ''}}
-      /> */}
     </Stack.Navigator>
   );
 }

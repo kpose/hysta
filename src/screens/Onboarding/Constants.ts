@@ -9,18 +9,27 @@ export interface OnboardingPageProps extends Pick<ImageProps, 'source'> {
 
 export const PAGES: OnboardingPageProps[] = [
   {
-    title: 'Samurai',
-    description: 'Create and see the change in your community!',
+    title: 'Fund and monitor project growth',
+    description:
+      'With the power of blockchain, you can fund your favorite project and monitor how your money is spent',
     source: require('../../assets/images/image1.png'),
   },
   {
-    title: 'Samurai',
-    description: "Follow along a project's journey from start to finish",
+    title: "Create and fund Africa's future",
+    description:
+      "Want to contribute to the made in Africa campaign? Don't worry, we got you covered.",
     source: require('../../assets/images/image2.png'),
   },
   {
-    title: 'Samurai',
-    description: 'Share and explore a variety of projects',
+    title: 'Live demos with co-founders themselves',
+    description:
+      "Have a doubt about the product? Don't worry, we will provide you with a live demovideo",
+    source: require('../../assets/images/image3.png'),
+  },
+  {
+    title: 'Fund now and get rewarded later',
+    description:
+      'Even the smallest contribution will be appreciated with a customized token from the company',
     source: require('../../assets/images/image3.png'),
   },
 ];
