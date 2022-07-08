@@ -1,17 +1,17 @@
 import {StyleSheet, Pressable} from 'react-native';
-import React, {useEffect, useState, useRef, useCallback} from 'react';
-import {IEnterMobileNumberProps} from './interfaces';
+import React, {useEffect, useState, useCallback} from 'react';
+import {IEnterEmailScreenProps} from './interfaces';
 import Screen from '../../components/Screen/Screen';
+import TextInput from '../../components/TextInput/TextInput';
 import Text, {ScreenTitle} from '../../components/Text/Text';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {colors} from '../../utils/colors';
-import PhoneInput from 'react-native-phone-number-input';
 import Button from '../../components/Button/Button';
+import {isEmail} from '../../configs/rules.config';
 
-const EnterMobileNumber: IEnterMobileNumberProps = ({navigation}) => {
-  const [value, setValue] = useState('');
-  const [formattedValue, setFormattedValue] = useState('');
-  const phoneInput = useRef<PhoneInput>(null);
+const EnterEmailScreen: IEnterEmailScreenProps = ({navigation}) => {
+  const [email, setEmail] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const onBackPress = useCallback(() => {
     navigation.goBack();
@@ -35,56 +35,55 @@ const EnterMobileNumber: IEnterMobileNumberProps = ({navigation}) => {
   }, [BackButton, navigation]);
 
   const onContinuePress = useCallback(() => {
-    if (!value) {
-      return;
+    /* check input validity */
+    if (!email) {
+      return setErrorMessage('Please enter your email address');
     }
-    console.log(formattedValue);
-  }, [formattedValue, value]);
+    let valid = isEmail(email);
+    if (!valid) {
+      return setErrorMessage('Please enter a valid email address');
+    } else {
+      setErrorMessage('');
+    }
+    navigation.navigate('EnterPasswordScreen', {email});
+  }, [email, navigation]);
 
-  const checkIsValid = useCallback(() => {
-    const checkValid = phoneInput.current?.isValidNumber(value);
-    if (checkValid) {
-      return false;
-    }
-    return true;
-  }, [value]);
+  const onChangeText = useCallback(
+    (v: string) => {
+      if (errorMessage) {
+        setErrorMessage('');
+      }
+      setEmail(v);
+    },
+    [errorMessage],
+  );
 
   return (
     <Screen style={styles.container}>
-      <ScreenTitle style={styles.title}>Enter your mobile number</ScreenTitle>
+      <ScreenTitle style={styles.title}>Enter your Email Address</ScreenTitle>
       <Text style={styles.description}>
-        Enter the mobile number to register the account
+        Enter the email address to register your account
       </Text>
 
-      <PhoneInput
-        ref={phoneInput}
-        defaultValue={value}
-        defaultCode="NG"
-        layout="first"
-        onChangeText={text => {
-          setValue(text);
-        }}
-        onChangeFormattedText={text => {
-          setFormattedValue(text);
-        }}
-        containerStyle={styles.phoneInput}
-        textContainerStyle={styles.phoneTextContainer}
-        withDarkTheme
-        withShadow
+      <TextInput
+        onChangeText={v => onChangeText(v)}
+        value={email}
+        placeholder="Email"
+        errorMessage={errorMessage}
         autoFocus
+        keyboardType="email-address"
       />
 
       <Button
         style={styles.continueButton}
         title="Continue"
         onPress={onContinuePress}
-        disabled={checkIsValid()}
       />
     </Screen>
   );
 };
 
-export default EnterMobileNumber;
+export default EnterEmailScreen;
 
 const styles = StyleSheet.create({
   container: {

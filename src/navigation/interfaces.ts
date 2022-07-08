@@ -5,6 +5,8 @@ export type IOnboardingStackParamList = {
   OnboardingQuestions: undefined;
   AppStack: undefined;
   EnterMobileNumber: undefined;
+  EnterEmailScreen: undefined;
+  EnterPasswordScreen: {email: string};
 };
 
 export type IAppStackParamList = {

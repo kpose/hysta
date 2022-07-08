@@ -39,7 +39,7 @@ export default TextInput;
 const styles = StyleSheet.create({
   input: {
     height: 50,
-    width: PAGE_WIDTH / 1.2,
+    width: '100%',
     marginTop: 18,
     marginBottom: 5,
     borderWidth: 1,

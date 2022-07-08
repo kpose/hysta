@@ -5,7 +5,9 @@ import Landing from '../screens/Landing/Landing';
 import {StyleSheet, Platform} from 'react-native';
 import {IOnboardingStackParamList} from './interfaces';
 import AuthScreen from '../screens/AuthScreen/AuthScreen';
+import EnterEmailScreen from '../screens/EnterEmailScreen/EnterEmailScreen';
 import EnterMobileNumber from '../screens/EnterMobileNumber/EnterMobileNumber';
+import EnterPasswordScreen from '../screens/EnterPasswordScreen/EnterPasswordScreen';
 // import OnboardingQuestions from '../screens/OnboardingQuestions/OnboardingQuestions';
 // import AppStack from './AppStack';
 import {getItem} from '../utils/storage';
@@ -55,6 +57,16 @@ function OnboardingStack() {
       <Stack.Screen
         name="EnterMobileNumber"
         component={EnterMobileNumber}
+        options={{headerTitle: ''}}
+      />
+      <Stack.Screen
+        name="EnterEmailScreen"
+        component={EnterEmailScreen}
+        options={{headerTitle: ''}}
+      />
+      <Stack.Screen
+        name="EnterPasswordScreen"
+        component={EnterPasswordScreen}
         options={{headerTitle: ''}}
       />
     </Stack.Navigator>

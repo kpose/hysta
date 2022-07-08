@@ -13,6 +13,10 @@ const AuthScreen: IAuthScreenProps = ({navigation}) => {
     navigation.navigate('EnterMobileNumber');
   }, [navigation]);
 
+  const onEmailPress = useCallback(() => {
+    navigation.navigate('EnterEmailScreen');
+  }, [navigation]);
+
   return (
     <Screen style={styles.container}>
       <ScreenTitle>Sign up to get started</ScreenTitle>
@@ -21,7 +25,7 @@ const AuthScreen: IAuthScreenProps = ({navigation}) => {
       </Text>
       <View style={styles.buttonsContainer}>
         <Button title="Sign Up using Mobile Number" onPress={onMobilePress} />
-        <Button title="Sign Up using Email" />
+        <Button title="Sign Up using Email" onPress={onEmailPress} />
         <View style={styles.socialContainer}>
           <Image
             style={styles.socialImage}
