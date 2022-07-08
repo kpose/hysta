@@ -1,22 +1,26 @@
 import {StyleSheet, View, Image} from 'react-native';
 import Text from '../../components/Text/Text';
-import React from 'react';
+import {ScreenTitle} from '../../components/Text/Text';
+import React, {useCallback} from 'react';
 
 import Screen from '../../components/Screen/Screen';
 import {colors} from '../../utils/colors';
 import Button from '../../components/Button/Button';
+import {IAuthScreenProps} from './interfaces';
 
-const AuthScreen = () => {
+const AuthScreen: IAuthScreenProps = ({navigation}) => {
+  const onMobilePress = useCallback(() => {
+    navigation.navigate('EnterMobileNumber');
+  }, [navigation]);
+
   return (
     <Screen style={styles.container}>
-      <Text stylish style={styles.title}>
-        Sign up to get started
-      </Text>
+      <ScreenTitle>Sign up to get started</ScreenTitle>
       <Text style={styles.description}>
-        Sign up to access a wide range of pproducts and experiences
+        Sign up to access a wide range of products and experiences
       </Text>
       <View style={styles.buttonsContainer}>
-        <Button title="Sign Up using Mobile Number" />
+        <Button title="Sign Up using Mobile Number" onPress={onMobilePress} />
         <Button title="Sign Up using Email" />
         <View style={styles.socialContainer}>
           <Image

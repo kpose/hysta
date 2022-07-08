@@ -6,6 +6,7 @@ const Screen: FC<ViewProps> = function Screen({style, ...props}) {
   return <RNView style={[styles.base, style]} {...props} />;
 };
 
+// ADD STATUSBAR
 export default Screen;
 
 const styles = StyleSheet.create({

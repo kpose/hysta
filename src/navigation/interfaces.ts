@@ -4,6 +4,7 @@ export type IOnboardingStackParamList = {
   AuthScreen: {isSignup: boolean};
   OnboardingQuestions: undefined;
   AppStack: undefined;
+  EnterMobileNumber: undefined;
 };
 
 export type IAppStackParamList = {
