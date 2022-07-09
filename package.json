@@ -11,6 +11,8 @@
     "postinstall": "./node_modules/.bin/rn-nodeify --install 'crypto,buffer,react-native-randombytes,vm,stream,http,https,os,url,net,fs' --hack"
   },
   "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.1.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
     "@react-native-async-storage/async-storage": "^1.17.7",
     "@react-native-firebase/app": "^14.11.1",
     "@react-native-firebase/auth": "^14.11.1",
@@ -24,10 +26,12 @@
     "base-64": "^1.0.0",
     "browserify-zlib": "^0.1.4",
     "buffer": "^4.9.2",
+    "chai": "^4.3.6",
     "console-browserify": "^1.2.0",
     "constants-browserify": "^1.0.0",
     "dns.js": "^1.0.1",
     "domain-browser": "^1.2.0",
+    "ethereum-waffle": "^3.4.4",
     "events": "^1.1.1",
     "https-browserify": "^0.0.1",
     "node-libs-browser": "^2.2.1",
@@ -65,6 +69,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
     "@react-native-community/eslint-config": "^2.0.0",
     "@tsconfig/react-native": "^2.0.0",
     "@types/jest": "^26.0.23",
@@ -75,6 +80,7 @@
     "@typescript-eslint/parser": "^5.29.0",
     "babel-jest": "^26.6.3",
     "eslint": "^7.32.0",
+    "hardhat": "^2.10.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.70.3",
     "react-test-renderer": "18.0.0",
