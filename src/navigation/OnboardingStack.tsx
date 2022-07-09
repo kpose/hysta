@@ -10,11 +10,13 @@ import EnterPasswordScreen from '../screens/EnterPasswordScreen/EnterPasswordScr
 import EnterNameScreen from '../screens/EnterNameScreen/EnterNameScreen';
 
 import {getItem} from '../utils/storage';
+import {Screen} from 'react-native-screens';
+import {ActivityIndicator} from 'react-native-paper';
 
 const Stack = createNativeStackNavigator<IOnboardingStackParamList>();
 
 function OnboardingStack() {
-  const [isOnboarded, setIsOnboarded] = useState<boolean | null>();
+  const [isOnboarded, setIsOnboarded] = useState<boolean>();
 
   useEffect(() => {
     const isOnboardingComplete = async () => {
@@ -25,8 +27,17 @@ function OnboardingStack() {
     isOnboardingComplete();
   }, []);
 
+  if (isOnboarded === undefined) {
+    return (
+      <Screen style={styles.loading}>
+        <ActivityIndicator size={'small'} animating={true} />
+      </Screen>
+    );
+  }
+
   return (
     <Stack.Navigator
+      initialRouteName={isOnboarded ? 'AuthScreen' : 'Onboarding'}
       screenOptions={{
         headerTitle: '',
         headerBackTitleVisible: false,
@@ -35,13 +46,11 @@ function OnboardingStack() {
         headerTitleAlign: Platform.select({ios: 'center'}),
         headerTransparent: true,
       }}>
-      {isOnboarded ? null : (
-        <Stack.Screen
-          name="Onboarding"
-          component={Onboarding}
-          options={{headerTitle: ''}}
-        />
-      )}
+      <Stack.Screen
+        name="Onboarding"
+        component={Onboarding}
+        options={{headerTitle: ''}}
+      />
       <Stack.Screen
         name="Landing"
         component={AuthScreen}
@@ -85,6 +94,11 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 16,
     lineHeight: 26,
+  },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

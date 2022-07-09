@@ -5,4 +5,5 @@ export interface IUserData {
   fullname: string;
   fundingLevel?: IUserFundingLevel;
   id?: string;
+  projectCategories: string[];
 }

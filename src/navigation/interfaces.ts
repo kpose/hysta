@@ -12,6 +12,7 @@ export type IOnboardingStackParamList = {
 
 export type IUserStackParamList = {
   UserLevelScreen: undefined;
+  SelectCategories: undefined;
   HomeBottomTab: undefined;
 };
 

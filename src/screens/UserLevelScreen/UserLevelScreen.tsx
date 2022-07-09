@@ -16,9 +16,6 @@ const UserLevelScreen: IUserLevelScreenProps = ({navigation}) => {
   const {userData} = useUserContext();
   const [fundingLevel, setFundingLevel] = useState<IUserFundingLevel>();
   const [isLoading, setIsLoading] = useState(false);
-
-  console.log(userData);
-
   interface IListItemProps {
     item: {
       level: string;
@@ -42,13 +39,13 @@ const UserLevelScreen: IUserLevelScreenProps = ({navigation}) => {
         })
         .then(() => {
           setIsLoading(false);
-          console.log('User updated!');
+          navigation.navigate('SelectCategories');
         });
     } catch (error) {
       setIsLoading(false);
       console.log(error);
     }
-  }, [fundingLevel, userData?.id]);
+  }, [fundingLevel, navigation, userData?.id]);
 
   if (!userData) {
     return null;
