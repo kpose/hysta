@@ -1,15 +1,14 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useEffect, useState} from 'react';
 import Onboarding from '../screens/Onboarding/Onboarding';
-import Landing from '../screens/Landing/Landing';
 import {StyleSheet, Platform} from 'react-native';
 import {IOnboardingStackParamList} from './interfaces';
 import AuthScreen from '../screens/AuthScreen/AuthScreen';
 import EnterEmailScreen from '../screens/EnterEmailScreen/EnterEmailScreen';
 import EnterMobileNumber from '../screens/EnterMobileNumber/EnterMobileNumber';
 import EnterPasswordScreen from '../screens/EnterPasswordScreen/EnterPasswordScreen';
-// import OnboardingQuestions from '../screens/OnboardingQuestions/OnboardingQuestions';
-// import AppStack from './AppStack';
+import EnterNameScreen from '../screens/EnterNameScreen/EnterNameScreen';
+
 import {getItem} from '../utils/storage';
 
 const Stack = createNativeStackNavigator<IOnboardingStackParamList>();
@@ -67,6 +66,11 @@ function OnboardingStack() {
       <Stack.Screen
         name="EnterPasswordScreen"
         component={EnterPasswordScreen}
+        options={{headerTitle: ''}}
+      />
+      <Stack.Screen
+        name="EnterNameScreen"
+        component={EnterNameScreen}
         options={{headerTitle: ''}}
       />
     </Stack.Navigator>

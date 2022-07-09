@@ -1,14 +1,12 @@
 import {
   StyleSheet,
   Pressable as PButton,
-  Dimensions,
   ActivityIndicator,
 } from 'react-native';
 import React from 'react';
 import {ButtonProps, ButtonType} from './interfaces';
 import {colors} from '../../utils/colors';
 import Text from '../Text/Text';
-const {width: PAGE_WIDTH} = Dimensions.get('window');
 
 const getBackgroundColor = (type?: ButtonType) => {
   switch (type) {
@@ -56,9 +54,17 @@ const Button: React.FC<ButtonProps> = function Button({
           animating={true}
         />
       ) : null}
-      <Text weight="medium" style={[styles.buttonText, getFontWeight(type)]}>
-        {title}
-      </Text>
+      {loading ? (
+        <ActivityIndicator
+          size={'small'}
+          color={colors.primary}
+          animating={true}
+        />
+      ) : (
+        <Text weight="medium" style={[styles.buttonText, getFontWeight(type)]}>
+          {title}
+        </Text>
+      )}
     </PButton>
   );
 };

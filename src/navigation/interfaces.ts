@@ -5,8 +5,14 @@ export type IOnboardingStackParamList = {
   OnboardingQuestions: undefined;
   AppStack: undefined;
   EnterMobileNumber: undefined;
-  EnterEmailScreen: undefined;
+  EnterEmailScreen: {isEmailError: string} | undefined;
   EnterPasswordScreen: {email: string};
+  EnterNameScreen: {email: string; password: string};
+};
+
+export type IUserStackParamList = {
+  UserLevelScreen: undefined;
+  HomeBottomTab: undefined;
 };
 
 export type IAppStackParamList = {

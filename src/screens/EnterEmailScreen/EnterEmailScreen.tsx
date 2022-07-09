@@ -9,7 +9,10 @@ import {colors} from '../../utils/colors';
 import Button from '../../components/Button/Button';
 import {isEmail} from '../../configs/rules.config';
 
-const EnterEmailScreen: IEnterEmailScreenProps = ({navigation}) => {
+const EnterEmailScreen: IEnterEmailScreenProps = ({
+  navigation,
+  route: {params},
+}) => {
   const [email, setEmail] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
 
@@ -53,10 +56,22 @@ const EnterEmailScreen: IEnterEmailScreenProps = ({navigation}) => {
       if (errorMessage) {
         setErrorMessage('');
       }
+      if (params?.isEmailError) {
+        navigation.setParams({
+          isEmailError: '',
+        });
+      }
       setEmail(v);
     },
-    [errorMessage],
+    [errorMessage, navigation, params?.isEmailError],
   );
+
+  const isButtonDisabled = useCallback(() => {
+    if (params?.isEmailError) {
+      return true;
+    }
+    return false;
+  }, [params?.isEmailError]);
 
   return (
     <Screen style={styles.container}>
@@ -69,7 +84,7 @@ const EnterEmailScreen: IEnterEmailScreenProps = ({navigation}) => {
         onChangeText={v => onChangeText(v)}
         value={email}
         placeholder="Email"
-        errorMessage={errorMessage}
+        errorMessage={errorMessage || params?.isEmailError}
         autoFocus
         keyboardType="email-address"
       />
@@ -78,6 +93,7 @@ const EnterEmailScreen: IEnterEmailScreenProps = ({navigation}) => {
         style={styles.continueButton}
         title="Continue"
         onPress={onContinuePress}
+        disabled={isButtonDisabled()}
       />
     </Screen>
   );
