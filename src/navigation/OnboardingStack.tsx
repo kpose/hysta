@@ -43,7 +43,8 @@ function OnboardingStack() {
         headerBackTitleVisible: false,
         headerBackVisible: false,
         headerTitleStyle: styles.headerTitle,
-        headerTitleAlign: Platform.select({ios: 'center'}),
+        headerTintColor: 'red',
+        headerTitleAlign: 'center',
         headerTransparent: true,
       }}>
       <Stack.Screen
@@ -54,7 +55,10 @@ function OnboardingStack() {
       <Stack.Screen
         name="Landing"
         component={AuthScreen}
-        options={{headerTitle: '', gestureEnabled: false}}
+        options={{
+          headerTitle: '',
+          gestureEnabled: false,
+        }}
       />
 
       <Stack.Screen
@@ -70,17 +74,26 @@ function OnboardingStack() {
       <Stack.Screen
         name="EnterEmailScreen"
         component={EnterEmailScreen}
-        options={{headerTitle: ''}}
+        options={{
+          headerTitle: '',
+          headerTransparent: Platform.OS === 'ios' ? true : false,
+        }}
       />
       <Stack.Screen
         name="EnterPasswordScreen"
         component={EnterPasswordScreen}
-        options={{headerTitle: ''}}
+        options={{
+          headerTitle: '',
+          headerTransparent: Platform.OS === 'ios' ? true : false,
+        }}
       />
       <Stack.Screen
         name="EnterNameScreen"
         component={EnterNameScreen}
-        options={{headerTitle: ''}}
+        options={{
+          headerTitle: '',
+          headerTransparent: Platform.OS === 'ios' ? true : false,
+        }}
       />
     </Stack.Navigator>
   );
