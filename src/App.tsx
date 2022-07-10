@@ -9,11 +9,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {WalletConnectProvider} from '@walletconnect/react-native-dapp/dist/providers';
 import Web3 from 'web3';
 import {linking} from './configs/linking.config';
+import {ethers} from 'ethers';
 
 const web3 = new Web3('http://localhost:7545');
 const newWallet = web3.eth.accounts.wallet.create(1);
 const newAccount = newWallet[0];
 console.log(newAccount);
+console.log(ethers.version);
 
 const App = () => {
   return (
