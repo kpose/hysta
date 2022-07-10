@@ -8,10 +8,7 @@ import {CustomDarkTheme, CustomLightTheme} from '../utils/ThemeColors';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {colors} from '../utils/colors';
 import {useUserContext} from '../providers/UserProvider';
-
-const linking = {
-  prefixes: ['hysta://'],
-};
+import {linking} from '../configs/linking.config';
 
 function RootNavigator() {
   const {dark} = useThemeContext();
@@ -20,7 +17,7 @@ function RootNavigator() {
     <PaperProvider theme={dark ? CustomDarkTheme : CustomLightTheme}>
       <NavigationContainer
         theme={dark ? CustomDarkTheme : CustomLightTheme}
-        fallback={<ActivityIndicator color={colors.primary} size="large" />}
+        fallback={<ActivityIndicator color={colors.primary} size="small" />}
         linking={linking}>
         {user ? <UserStack /> : <OnboardingStack />}
       </NavigationContainer>

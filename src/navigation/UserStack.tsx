@@ -26,13 +26,13 @@ function UserStack() {
     return setIsComplete(true);
   }, [userData]);
 
-  if (!isComplete) {
-    return (
-      <Screen style={styles.loading}>
-        <ActivityIndicator size={'small'} animating={true} />
-      </Screen>
-    );
-  }
+  // if (!isComplete) {
+  //   return (
+  //     <Screen style={styles.loading}>
+  //       <ActivityIndicator size={'small'} animating={true} />
+  //     </Screen>
+  //   );
+  // }
 
   return (
     <Stack.Navigator
